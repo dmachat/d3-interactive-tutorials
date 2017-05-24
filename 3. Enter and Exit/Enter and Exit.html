@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <title>Enter and Exit</title>
+  <style type="text/css">
+  </style>
+</head>
+
+<body>
+
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+
+  <p>First</p>
+  <p>Second</p>
+  <p>Third</p>
+
+<script>
+  var d3 = d3 || window.d3;
+
+  // If we have more data, add new 'p' for those data items
+  var items = d3.selectAll('p')
+    .data([4, 8, 15, 16, 23, 42])
+    .enter().append('p')
+    .text(function(d) { return 'I’m number ' + d + '!'; });
+
+  // If we have less data points, remove the 'p' that no
+  // longer have a data pairing.
+  items.data([4, 8, 15, 16]).exit().remove();
+</script>
+
+</body>
+</html>

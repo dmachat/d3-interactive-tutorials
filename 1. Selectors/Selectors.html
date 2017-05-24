@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <title>Selectors</title>
+  <style type="text/css">
+  </style>
+</head>
+
+<body>
+
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+
+  <p>First</p>
+  <p>Second</p>
+  <p>Third</p>
+
+<script>
+  var d3 = d3 || window.d3;
+
+  d3.selectAll('p').style('color', 'white');
+
+  d3.select('body').style('background', 'black');
+</script>
+
+</body>
+</html>

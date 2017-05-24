@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <title>Transitions</title>
+  <style type="text/css">
+    circle {
+      fill: red;
+    }
+  </style>
+</head>
+
+<body>
+
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+
+<script>
+  var d3 = d3 || window.d3;
+
+  // The main selector. Adds the sized svg, the data, and the selector
+  var svg = d3.select('body')
+    .append('svg')
+    .attr('width', 350)
+    .attr('height', 300)
+    .selectAll('circle')
+    .data([20, 40, 60]);
+
+  // Enter the main selector
+  var circles = svg.enter().append('circle');
+
+  // Describe the circles we want drawn
+  circles
+    .attr('r', '0')
+    .attr({
+      'cx': function(d) {return (d * 5); },
+      'cy': 20
+    })
+    .transition()
+    .duration(750)
+    .delay(function(d, i) { return i * 1000; })
+    // Make them grow
+    .attr('r', 10);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <title>Dynamic Properties</title>
+  <style type="text/css">
+  </style>
+</head>
+
+<body>
+
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+
+  <p>First</p>
+  <p>Second</p>
+  <p>Third</p>
+
+<script>
+  var d3 = d3 || window.d3;
+
+  // Randomly color paragraphs
+  /*
+  d3.selectAll('p')
+    .style('color', function() {
+      return 'hsl(' + Math.random() * 360 + ',100%,50%)';
+    });
+  */
+
+  // Alternate greys
+  /*
+  d3.selectAll('p')
+    .style('color', function(d, i) {
+      return i % 2 ? '#fff' : '#eee';
+    });
+  */
+    
+  // Computer Properties
+  d3.selectAll('p')
+    .data([4, 8, 15, 16, 23, 42])
+    .style('font-size', function(d) { return d + 'px'; });
+</script>
+
+</body>
+</html>
